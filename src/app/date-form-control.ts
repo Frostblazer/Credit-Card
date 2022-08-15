@@ -1,7 +1,11 @@
 import { UntypedFormControl } from '@angular/forms';
 
 export class DateFormControl extends UntypedFormControl {
-  override setValue(value: string, options: any) {
+  override setValue(value: string | null, options: any) {
+    if (!value) {
+      super.setValue('', { ...options, emitModelToViewChange: true });
+      return;
+    }
     if (value.match(/[^0-9|\/]/gi)) {
       super.setValue(this.value, { ...options, emitModelToViewChange: true });
       return;

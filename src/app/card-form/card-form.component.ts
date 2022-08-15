@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import {
+  UntypedFormGroup,
+  UntypedFormControl,
+  Validators,
+} from '@angular/forms';
 import { DateFormControl } from '../date-form-control';
 
 @Component({
@@ -9,7 +13,10 @@ import { DateFormControl } from '../date-form-control';
 })
 export class CardFormComponent implements OnInit {
   cardForm = new UntypedFormGroup({
-    name: new UntypedFormControl('', [Validators.required, Validators.minLength(3)]),
+    name: new UntypedFormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
     cardNumber: new UntypedFormControl('', [
       Validators.required,
       Validators.minLength(16),
@@ -34,5 +41,9 @@ export class CardFormComponent implements OnInit {
 
   onSubmit() {
     console.log('Form was submitted');
+  }
+
+  onResetClick() {
+    this.cardForm.reset();
   }
 }
