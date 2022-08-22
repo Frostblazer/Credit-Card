@@ -24,7 +24,7 @@ export class CardFormComponent implements OnInit {
     ]),
     expiration: new DateFormControl('', [
       Validators.required,
-      Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/),
+      // Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/),
     ]),
     securityCode: new UntypedFormControl('', [
       Validators.required,
